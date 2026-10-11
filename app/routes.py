@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 from app.database import addNewCustomer, getAllCustomers
-from ai_service import talkWithAI
+from app.services.ai_service import talkWithAI
 
 api_blueprint = Blueprint('api_blueprint', __name__)
 
