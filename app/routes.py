@@ -18,23 +18,16 @@ def chat():
 @api_blueprint.route('/leads', methods=['POST'])
 def addLead():
     data = request.json or {}
-    
-    # İstediğiniz veri isimlendirmeleri (name, email, phone, message)
     name = data.get('name')
     email = data.get('email', '')
     phone = data.get('phone', '') 
     message = data.get('message', '')
-    
-    # İsim ve mesaj alanlarını zorunlu kılıyoruz
     if not name or not message:
         return jsonify({'error': 'İsim ve mesaj alanları zorunludur.'}), 400
-        
-    # Veritabanına kaydetme işlemi
     addNewCustomer(name, email, phone, message)
     return jsonify({'basari': True, 'message': 'Kayıt başarıyla oluşturuldu'})
 
 @api_blueprint.route('/leads', methods=['GET'])
 def getLeads():
-    # Hiçbir limit veya arama parametresi olmadan tüm veriyi çek
     customers = getAllCustomers()
     return jsonify({'basari': True, 'toplam': len(customers), 'leads': customers})
