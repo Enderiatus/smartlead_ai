@@ -24,7 +24,6 @@ def createDatabase():
 def addNewCustomer(name, email, phone, message):
     conn = connectDatabase()
     try:
-        # Gelen datayı database tablosundaki phoneNumber ve text alanlarına eşliyoruz
         cur = conn.execute(
             "INSERT INTO customers (name, email, phoneNumber, text) VALUES (?, ?, ?, ?)",
             (name, email, phone, message),
@@ -37,7 +36,6 @@ def addNewCustomer(name, email, phone, message):
 def getAllCustomers():
     conn = connectDatabase()
     try:
-        # En yeni kayıtlar en üstte olacak şekilde sıralı ve limitsiz listeleme
         rows = conn.execute("SELECT * FROM customers ORDER BY createdAt DESC").fetchall()
         return [dict(row) for row in rows]
     finally:
