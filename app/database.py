@@ -38,7 +38,8 @@ def getAllCustomers():
     try:
         print("Tüm veriler çekiliyor!");
         rows = conn.execute("SELECT * FROM customers ORDER BY createdAt DESC").fetchall()
-        print(dict(row) for row in rows);
-        return [dict(row) for row in rows]
+        sonuc_listesi = [dict(row) for row in rows]
+        print(sonuc_listesi);
+        return sonuc_listesi
     finally:
         conn.close()
