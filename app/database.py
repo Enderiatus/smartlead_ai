@@ -36,7 +36,9 @@ def addNewCustomer(name, email, phone, message):
 def getAllCustomers():
     conn = connectDatabase()
     try:
+        print("Tüm veriler çekiliyor!");
         rows = conn.execute("SELECT * FROM customers ORDER BY createdAt DESC").fetchall()
+        print(dict(row) for row in rows);
         return [dict(row) for row in rows]
     finally:
         conn.close()
