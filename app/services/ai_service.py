@@ -4,7 +4,7 @@ from google import genai
 from config import Configs
 
 # Model adı Render'daki GEMINI_MODEL değişkeninden okunur
-MODEL = os.environ.get('GEMINI_MODEL', 'gemini-3.5-flash')
+MODEL = os.environ.get('GEMINI_MODEL', 'gemini-2.5-flash')
 
 try:
     client = genai.Client(api_key=Configs.GEMINI_API_KEY)
