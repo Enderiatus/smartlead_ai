@@ -24,10 +24,10 @@ def talkWithAI(text):
         )
         if response and response.text:
             return response.text
-        return "Şu an yanıt veremiyorum, lütfen tekrar dene."
+        return "Yapayzeka sunucularındaki yoğunluk sebebiyle şu an yanıt veremiyorum, lütfen tekrar dene."
     except APIError as api_err:
         print(f"Gemini API Hatası: {api_err}")   # ayrıntı Render loglarına
         return "Şu an yanıt veremiyorum, lütfen tekrar dene."
     except Exception as general_err:
         print(f"Beklenmedik bir hata: {general_err}")
-        return "Şu an yanıt veremiyorum, lütfen tekrar dene."
+        return "Yapayzeka sunucularındaki yoğunluk sebebiyle şu an yanıt veremiyorum, lütfen tekrar dene."
